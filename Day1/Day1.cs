@@ -14,14 +14,7 @@ namespace Day1
             var reader = new StreamReader("../../input.txt");
             var line = reader.ReadLine().ToCharArray();
             var digits = line.Select(x => (int) Char.GetNumericValue(x)).ToArray();
-            var sum = 0;
-            for(int i = 0; i<digits.Length; i++)
-            {
-                if(digits[i] == digits[(i+1) % digits.Length])
-                {
-                    sum += digits[i];
-                }   
-            }
+            var sum = digits.Where((t, i) => t == digits[(i + 1) % digits.Length]).Sum();
             Console.WriteLine(sum);
         }
     }
