@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.IO;
-using System.Text;
-using System.Threading.Tasks;
+using AdventOfCodeInputReader;
+using Day1_2.Properties;
 
 namespace Day1_2
 {
@@ -11,8 +9,10 @@ namespace Day1_2
     {
         static void Main(string[] args)
         {
-            var reader = new StreamReader("../../input.txt");
-            var line = reader.ReadLine().ToCharArray();
+            var aocInputReader = new AoCInputReader(Settings.Default.SessionCookie);
+            var lines = aocInputReader.GetInputForDay(1).Result;
+
+            var line = lines[0];
             var digits = line.Select(x => (int)Char.GetNumericValue(x)).ToArray();
             var sum = 0;
             for (int i = 0; i < digits.Length; i++)
