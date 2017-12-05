@@ -14,9 +14,8 @@ namespace Day05_2
 
             var digits = lines.Select(Int32.Parse).ToArray();
             var position = 0;
-            var isEnded = false;
             var steps = 0;
-            while (!isEnded)
+            while (position < digits.Length || position >= 0)
             {
                 if (digits[position] >= 3)
                 {
@@ -30,10 +29,6 @@ namespace Day05_2
                 }
                 
                 steps++;
-                if (position >= digits.Length || position < 0)
-                {
-                    isEnded = true;
-                }
             }
             Console.WriteLine(steps);
         }

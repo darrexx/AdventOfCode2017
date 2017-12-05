@@ -14,17 +14,12 @@ namespace Day05
 
             var digits = lines.Select(Int32.Parse).ToArray();
             var position = 0;
-            var isEnded = false;
             var steps = 0;
-            while (!isEnded)
+            while (position < digits.Length || position >= 0)
             {
                 digits[position] = digits[position] + 1;
                 position = position + digits[position] - 1;
                 steps++;
-                if (position >= digits.Length || position < 0)
-                {
-                    isEnded = true;
-                }
             }
             Console.WriteLine(steps);
         }
