@@ -18,7 +18,7 @@ namespace Day06_2
             var steps = 0;
             var hasFoundDuplicateState = false;
 
-            do
+            while (rememberedStates.All(x => !x.SequenceEqual(memorybanks)))
             {
                 rememberedStates.Add((int[])memorybanks.Clone());
                 var toDistribute = memorybanks.Max();
@@ -44,7 +44,7 @@ namespace Day06_2
                     steps = 0;
                 }
 
-            } while (rememberedStates.All(x => !x.SequenceEqual(memorybanks)));
+            }
 
             Console.WriteLine(steps);
         }

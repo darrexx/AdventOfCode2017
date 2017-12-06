@@ -17,7 +17,7 @@ namespace Day06
             var rememberedStates = new List<int[]>();
             var steps = 0;
 
-            do
+            while (rememberedStates.All(x => !x.SequenceEqual(memorybanks)))
             {
                 rememberedStates.Add((int[])memorybanks.Clone());
                 var toDistribute = memorybanks.Max();
@@ -36,7 +36,7 @@ namespace Day06
                 }
                 steps++;
 
-            } while (rememberedStates.All(x => !x.SequenceEqual(memorybanks)));
+            } 
 
             Console.WriteLine(steps);
         }
