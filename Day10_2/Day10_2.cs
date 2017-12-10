@@ -38,7 +38,7 @@ namespace Day10_2
                 }
             }
             var denseHashes = numbersList.Select((x, i) => new {Index = i, Value = x})
-                .GroupBy(x => x.Index % 16)
+                .GroupBy(x => x.Index / 16)
                 .Select(x => x.Select(y => y.Value).ToList())
                 .Select(x => x.Aggregate((y, next) => y ^ next))
                 .ToArray();
